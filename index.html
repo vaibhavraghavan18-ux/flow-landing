@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Synk.ai — Your journeys, finally in sync.</title>
+  <meta name="description" content="Synk.ai connects your cabs, flights, and stays into one intelligent flow.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Tailwind via CDN (no build step) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{--bg1:#0f172a;--bg2:#111827;--grad1:#6366f1;--grad2:#22d3ee}
+    html,body{scroll-behavior:smooth;}
+    body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,'Apple Color Emoji','Segoe UI Emoji'; background:#0b1020; color:#e5e7eb}
+    .container{max-width:1200px}
+    .glass{backdrop-filter: saturate(160%) blur(8px); background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,.08)}
+    .shine{background:linear-gradient(90deg,rgba(255,255,255,.0),rgba(255,255,255,.25),rgba(255,255,255,.0)); background-size:200% 100%; animation:shine 3s linear infinite}
+    @keyframes shine{0%{background-position:200% 0}100%{background-position:-200% 0}}
+    /* Hero animated gradient */
+    .hero-bg{
+      position:absolute; inset:-10% -10% auto -10%; height:60vh; filter:blur(60px); z-index:-1;
+      background: radial-gradient(60% 60% at 20% 30%, rgba(99,102,241,.35) 0%, transparent 60%),
+                  radial-gradient(40% 40% at 80% 40%, rgba(34,211,238,.35) 0%, transparent 60%),
+                  radial-gradient(50% 50% at 50% 90%, rgba(20,184,166,.25) 0%, transparent 60%);
+      animation: floaty 18s ease-in-out infinite alternate;
+    }
+    @keyframes floaty { from { transform: translateY(0px) } to { transform: translateY(25px) } }
+    /* Fade-in on scroll */
+    .reveal{opacity:0; transform:translateY(18px); transition:opacity .8s ease, transform .8s ease}
+    .reveal.on{opacity:1; transform:translateY(0)}
+    /* Simple badges for logos */
+    .logo-badge{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12);}
+    /* Divider */
+    .divider{height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,.15), transparent)}
+    /* Pricing highlight */
+    .card{border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.04)}
+    .card:hover{border-color:rgba(255,255,255,.25)}
+    /* Button */
+    .btn{background:linear-gradient(90deg, var(--grad1), var(--grad2)); color:white}
+    .btn:hover{opacity:.95}
+    /* Before/After boxes */
+    .panel{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08)}
+    /* Footer link */
+    a.link{color:#93c5fd}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <header class="sticky top-0 z-30 backdrop-blur bg-[#0b1020]/70 border-b border-white/5">
+    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-xl" style="background:linear-gradient(135deg,#6366f1,#22d3ee)"></div>
+        <span class="font-semibold tracking-tight">Synk<span class="text-sky-300">.ai</span></span>
+      </div>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+        <a href="#story" class="hover:text-white">Story</a>
+        <a href="#visual" class="hover:text-white">Why AI</a>
+        <a href="#pricing" class="hover:text-white">Pricing</a>
+        <a href="#team" class="hover:text-white">Team</a>
+        <a href="#cta" class="px-4 py-2 rounded-xl btn text-sm">Join Waitlist</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden">
+    <div class="hero-bg"></div>
+    <div class="container mx-auto px-6 pt-20 pb-16 md:pt-28 md:pb-24">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div class="reveal">
+          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+            Your journeys, <span class="text-transparent bg-clip-text" style="background-image:linear-gradient(90deg,#60a5fa,#22d3ee)">finally in sync</span>.
+          </h1>
+          <p class="mt-6 text-slate-300 md:text-lg">Synk.ai connects your cabs, flights and stays into one intelligent flow. Tell it the plan. It books, reschedules, and pays—automatically.</p>
+          <div class="mt-8 flex gap-4">
+            <a href="#cta" class="px-5 py-3 rounded-xl btn font-medium">Join the Waitlist</a>
+            <a href="#visual" class="px-5 py-3 rounded-xl glass font-medium">See how it works</a>
+          </div>
+          <div class="mt-6 text-xs text-slate-400">Made for people who hate app-hopping.</div>
+        </div>
+        <!-- Hero Visual -->
+        <div class="reveal">
+          <div class="relative aspect-[4/3] rounded-2xl glass overflow-hidden">
+            <svg viewBox="0 0 800 600" class="w-full h-full">
+              <defs>
+                <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#6366f1" stop-opacity=".9"/>
+                  <stop offset="100%" stop-color="#22d3ee" stop-opacity=".9"/>
+                </linearGradient>
+              </defs>
+              <!-- Glow dots / cities -->
+              <g>
+                <circle cx="120" cy="120" r="6" fill="url(#g1)"/>
+                <circle cx="680" cy="140" r="6" fill="url(#g1)"/>
+                <circle cx="200" cy="480" r="6" fill="url(#g1)"/>
+                <circle cx="620" cy="440" r="6" fill="url(#g1)"/>
+              </g>
+              <!-- Curved paths -->
+              <path d="M120 120 C 300 20, 500 40, 680 140" stroke="url(#g1)" stroke-width="3" fill="none">
+                <animate attributeName="stroke-dasharray" from="0,1000" to="1000,0" dur="4s" repeatCount="indefinite"/>
+              </path>
+              <path d="M200 480 C 250 300, 520 260, 680 140" stroke="url(#g1)" stroke-width="3" fill="none" opacity=".7">
+                <animate attributeName="stroke-dasharray" from="0,1000" to="1000,0" dur="4s" begin="1s" repeatCount="indefinite"/>
+              </path>
+              <path d="M120 120 C 200 260, 520 420, 620 440" stroke="url(#g1)" stroke-width="3" fill="none" opacity=".6">
+                <animate attributeName="stroke-dasharray" from="0,1000" to="1000,0" dur="4s" begin="2s" repeatCount="indefinite"/>
+              </path>
+              <!-- Caption -->
+              <text x="24" y="560" fill="#cbd5e1" font-size="16">AI routes everything in real-time: cabs ⇄ flights ⇄ hotels</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+  </section>
+
+  <!-- STORY -->
+  <section id="story" class="py-16 md:py-24">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div class="reveal">
+          <h2 class="text-3xl md:text-4xl font-bold">Travel today is still fragmented.</h2>
+          <p class="mt-4 text-slate-300">Airport cab in one app, flight in another, hotel in a third, and payments… somewhere else. You enter the same info again and again—and when plans change, you’re left fixing a domino mess.</p>
+          <ul class="mt-6 space-y-3 text-slate-300">
+            <li>• Switch between 3–5 apps for a single trip</li>
+            <li>• Manual rebooking after delays/cancellations</li>
+            <li>• Missed offers because the “right card” isn’t suggested</li>
+          </ul>
+        </div>
+        <div class="reveal panel rounded-2xl p-6">
+          <h3 class="text-xl font-semibold">Synk fixes this in one flow</h3>
+          <ol class="mt-4 space-y-4">
+            <li><span class="font-semibold text-sky-300">Understand:</span> Tell Synk your plan in plain English. It reads your calendar too (only if you allow).</li>
+            <li><span class="font-semibold text-sky-300">Plan:</span> Synk finds the best options and schedules—end to end.</li>
+            <li><span class="font-semibold text-sky-300">Execute:</span> It books, reschedules, and pays automatically with your saved preferences.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="py-12 md:py-16">
+    <div class="container mx-auto px-6">
+      <div class="reveal text-center">
+        <h2 class="text-3xl md:text-4xl font-bold">People who tried the prototype loved the calm.</h2>
+        <p class="mt-3 text-slate-300">Real voices. Real chaos removed.</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="reveal card rounded-2xl p-6">
+          <p class="text-slate-200">“Finally something that understands how I actually travel. I just said ‘Pune on Friday’ and everything appeared.”</p>
+          <div class="mt-4 text-sm text-slate-400">— Riya, Sales Manager</div>
+        </div>
+        <div class="reveal card rounded-2xl p-6">
+          <p class="text-slate-200">“The auto‑reschedule after a flight delay saved my weekend. My cab timing updated itself.”</p>
+          <div class="mt-4 text-sm text-slate-400">— Arjun, Consultant</div>
+        </div>
+        <div class="reveal card rounded-2xl p-6">
+          <p class="text-slate-200">“It picked the right card for the best offer. Small, but it adds up.”</p>
+          <div class="mt-4 text-sm text-slate-400">— Neha, Product Lead</div>
+        </div>
+      </div>
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <div class="logo-badge px-4 py-2 rounded-xl text-slate-300 text-xs">Early Users: Travel Clubs</div>
+        <div class="logo-badge px-4 py-2 rounded-xl text-slate-300 text-xs">Co-working Hubs</div>
+        <div class="logo-badge px-4 py-2 rounded-xl text-slate-300 text-xs">Startup Teams</div>
+        <div class="logo-badge px-4 py-2 rounded-xl text-slate-300 text-xs">Campus Societies</div>
+      </div>
+      <p class="mt-6 text-center text-slate-400 text-sm">Research insight: 70% of travellers switch between 3+ apps for a single trip.</p>
+    </div>
+  </section>
+
+  <!-- VISUAL AI ADVANTAGE -->
+  <section id="visual" class="py-16 md:py-24">
+    <div class="container mx-auto px-6">
+      <div class="reveal text-center">
+        <h2 class="text-3xl md:text-4xl font-bold">Why AI in 2025 makes this different</h2>
+        <p class="mt-3 text-slate-300">Pre‑2022 systems automated clicks. Modern AI understands intent, coordinates, and acts.</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-2 gap-6">
+        <div class="reveal panel rounded-2xl p-6">
+          <h3 class="font-semibold text-slate-200 mb-2">Before Synk</h3>
+          <ul class="space-y-2 text-slate-300">
+            <li>• App‑hopping for cab → flight → hotel → payments</li>
+            <li>• Manual reschedules after delays</li>
+            <li>• Offers missed, loyalty scattered</li>
+          </ul>
+        </div>
+        <div class="reveal panel rounded-2xl p-6">
+          <h3 class="font-semibold text-slate-200 mb-2">After Synk</h3>
+          <ul class="space-y-2 text-slate-300">
+            <li>• One assistant plans and executes everything</li>
+            <li>• Auto‑rebooking and synced timings</li>
+            <li>• Smart wallet picks the best card/offer</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="py-16 md:py-24">
+    <div class="container mx-auto px-6">
+      <div class="reveal text-center">
+        <h2 class="text-3xl md:text-4xl font-bold">Simple pricing that pays for itself</h2>
+        <p class="mt-3 text-slate-300">Time saved + offers applied = net savings vs. juggling apps.</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="reveal card rounded-2xl p-6 flex flex-col">
+          <h3 class="text-xl font-semibold">Free</h3>
+          <p class="mt-1 text-slate-400 text-sm">Plan & preview</p>
+          <div class="mt-6 text-3xl font-extrabold">₹0</div>
+          <ul class="mt-6 space-y-2 text-slate-300">
+            <li>• Unified itinerary</li>
+            <li>• Smart suggestions</li>
+            <li>• Email summaries</li>
+          </ul>
+          <a href="#cta" class="mt-8 px-4 py-3 rounded-xl btn text-center">Get Started</a>
+        </div>
+        <div class="reveal card rounded-2xl p-6 ring-2 ring-sky-400/50 flex flex-col">
+          <h3 class="text-xl font-semibold">Pro</h3>
+          <p class="mt-1 text-slate-400 text-sm">Auto‑booking & reschedules</p>
+          <div class="mt-6 text-3xl font-extrabold">₹199<span class="text-base font-semibold text-slate-400">/mo</span></div>
+          <ul class="mt-6 space-y-2 text-slate-300">
+            <li>• One‑tap confirmations</li>
+            <li>• Auto‑rebooking & synced rides</li>
+            <li>• Smart wallet offers</li>
+          </ul>
+          <a href="#cta" class="mt-8 px-4 py-3 rounded-xl btn text-center">Join Pro Waitlist</a>
+        </div>
+        <div class="reveal card rounded-2xl p-6 flex flex-col">
+          <h3 class="text-xl font-semibold">Partners</h3>
+          <p class="mt-1 text-slate-400 text-sm">For travel & mobility providers</p>
+          <div class="mt-6 text-3xl font-extrabold">Custom</div>
+          <ul class="mt-6 space-y-2 text-slate-300">
+            <li>• API & integrations</li>
+            <li>• Priority placements</li>
+            <li>• Co‑marketing</li>
+          </ul>
+          <a href="#cta" class="mt-8 px-4 py-3 rounded-xl btn text-center">Become a Partner</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONVERSION PATH -->
+  <section id="path" class="py-12 md:py-16">
+    <div class="container mx-auto px-6">
+      <div class="reveal text-center">
+        <h2 class="text-3xl md:text-4xl font-bold">What happens after you sign up?</h2>
+      </div>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="reveal panel rounded-2xl p-6">
+          <div class="text-lg font-semibold">1) Join Waitlist</div>
+          <p class="mt-2 text-slate-300">Get a confirmation email with your place in line.</p>
+        </div>
+        <div class="reveal panel rounded-2xl p-6">
+          <div class="text-lg font-semibold">2) Early Access</div>
+          <p class="mt-2 text-slate-300">We’ll invite you to try Synk with guided trips.</p>
+        </div>
+        <div class="reveal panel rounded-2xl p-6">
+          <div class="text-lg font-semibold">3) Rewards</div>
+          <p class="mt-2 text-slate-300">Refer friends and unlock Pro months for free.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team" class="py-16 md:py-24">
+    <div class="container mx-auto px-6">
+      <div class="reveal text-center">
+        <h2 class="text-3xl md:text-4xl font-bold">Meet the team</h2>
+      </div>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="reveal card rounded-2xl p-6">
+          <div class="text-lg font-semibold">Vaibhav Raghavan</div>
+          <p class="mt-2 text-slate-300 text-sm">Strategy & Product</p>
+        </div>
+        <div class="reveal card rounded-2xl p-6">
+          <div class="text-lg font-semibold">Teammate 2</div>
+          <p class="mt-2 text-slate-300 text-sm">Ops & Partnerships</p>
+        </div>
+        <div class="reveal card rounded-2xl p-6">
+          <div class="text-lg font-semibold">Teammate 3</div>
+          <p class="mt-2 text-slate-300 text-sm">Design & Research</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / FORM -->
+  <section id="cta" class="py-16 md:py-24">
+    <div class="container mx-auto px-6">
+      <div class="reveal text-center">
+        <h2 class="text-3xl md:text-4xl font-bold">Be first. Get Synk early.</h2>
+        <p class="mt-3 text-slate-300">Join the waitlist and we’ll email you when your invite is ready.</p>
+      </div>
+      <div class="mt-8 max-w-xl mx-auto">
+        <!-- DUMMY form now: shows a success toast and doesn't submit anywhere -->
+        <form id="waitlistForm" class="glass rounded-2xl p-4 md:p-6 flex flex-col md:flex-row gap-3">
+          <input required type="email" name="email" placeholder="you@example.com" class="w-full px-4 py-3 rounded-xl bg-black/30 border border-white/10 focus:outline-none focus:border-sky-400 text-white" />
+          <button class="px-5 py-3 rounded-xl btn font-medium">Join Waitlist</button>
+        </form>
+        <p class="mt-3 text-center text-xs text-slate-400">This is a demo. Enable Netlify Forms to collect emails (see README).</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-10">
+    <div class="container mx-auto px-6 text-center text-slate-400 text-sm">
+      © <span id="year"></span> Synk.ai • <a class="link" href="#story">Story</a> • <a class="link" href="#visual">Why AI</a> • <a class="link" href="#pricing">Pricing</a>
+    </div>
+  </footer>
+
+  <script>
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target);} });
+    }, {threshold: 0.15});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // Dummy submit handler (shows toast; prevents navigation)
+    const form = document.getElementById('waitlistForm');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const email = form.querySelector('input[name="email"]').value.trim();
+      if(!email){ return; }
+      const toast = document.createElement('div');
+      toast.textContent = "You're in! We'll email your early-access invite soon.";
+      toast.className = "fixed bottom-6 left-1/2 -translate-x-1/2 px-5 py-3 rounded-xl glass text-white";
+      document.body.appendChild(toast);
+      setTimeout(()=>toast.remove(), 3200);
+      form.reset();
+    });
+  </script>
+</body>
+</html>
